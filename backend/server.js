@@ -1,10 +1,17 @@
-import app from "./src/app.js";
+import createApp from "./src/app.js";
 import connectDB from "./src/db/mongoose.js";
+import { PORT } from "./src/config/env.config.js";
 
-connectDB();
+async function startServer() {
+  const app = createApp();
+  await connectDB();
 
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
+  app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
+  });
+}
+
+startServer().catch((error) => {
+  console.error("failed to start server", error.message);
+  process.exit(1);
 });
