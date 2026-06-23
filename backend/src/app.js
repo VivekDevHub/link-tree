@@ -1,53 +1,51 @@
-import express from 'express';
-import morgan from 'morgan';
-import cookieParser from 'cookie-parser';
-import indexRoutes from './routes/index.routes.js';
-import ApiError from './utils/ApiError.js';
-import ApiResponse from './utils/ApiResponse.js';
+// Importing modules
+import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
 import setMiddlewares from "./middlewares/index.middleware.js";
 import errorHandler from "./middlewares/error.middleware.js";
+import rateLimiter from "./middlewares/rateLimiter.middleware.js";
+import ApiError from "./utils/ApiError.js";
+import ApiResponse from "./utils/ApiResponse.js";
+import indexRouter from "./routes/index.route.js";
+import morgan from "morgan";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 function createApp() {
-const app = express();
-setMiddlewares(app);
+    const app = express();
 
-app.use(morgan('dev'));      // Setting up morgan for logging every request
-app.use(express.json());  //Converts JSON body into JavaScript object.
-app.use(cookieParser());  //Parses cookies from incoming requests.
-app.use('/api', indexRoutes);
+    // Setting up middlewares
+    setMiddlewares(app);
 
-// Send unknown routes to the centralized error handler.
-app.use((req,res,next) => {
-    next(new ApiError(404, `Route not found: ${req.originalUrl}`))
-})
+    // Setting up morgan for logging
+    app.use(morgan("dev"));
 
-app.use(errorHandler)  //This middleware catches all errors passed using:next(error)
+    // Making the health check route
+    app.get("/health", (req, res) => {
+        return ApiResponse(res, 200, "Server is healthy");
+    });
 
+    // Setting up rate limiter on API routes (100 requests per minute, 5 min block)
+    app.use("/api", rateLimiter({ windowMs: 60 * 1000, max: 100, blockDuration: 5 * 60 * 1000 }));
 
-app.get('/health', (req, res) => {
-    return ApiResponse(res,200,"server is healthy")
-});
+    // Setting up API routes
+    app.use("/api", indexRouter);
 
-return app
+    // Serving static files from public folder
+    app.use(express.static(path.join(__dirname, "../../public")));
 
+    // Send unknown routes to the centralized error handler.
+    app.use((req, res, next) => {
+        next(new ApiError(404, `Route not found: ${req.originalUrl}`));
+    });
+
+    // Setting up error handler
+    app.use(errorHandler);
+
+    return app;
 }
 
+// Exporting app creator
 export default createApp;
-
-// Client Request
-//       ↓
-// Morgan Logger
-//       ↓
-// express.json()
-//       ↓
-// cookieParser()
-//       ↓
-// Custom Middlewares
-//       ↓
-// /api Routes
-//       ↓
-// 404 Middleware
-//       ↓
-// Error Handler
-//       ↓
-// Response
