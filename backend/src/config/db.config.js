@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { MONGO_URI } from "./env.config";
+import { MONGO_URI } from "./env.config.js";
 import dns from "dns";
 
 // Setting custom DNS servers to avoid potential DNS resolution issues with MongoDB Atlas
