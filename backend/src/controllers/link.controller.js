@@ -1,5 +1,5 @@
 // Importing modules
-import { createLinkService, getLinksService, getAllLinksService, getDeletedLinksService, deleteLinkService, hardDeleteLinkService, restoreLinkService, reorderLinkService, updateLinkStyleService, highlightLinkService } from "../services/link.service.js";
+import { createLinkService, getLinksService, getAllLinksService, getDeletedLinksService, deleteLinkService, hardDeleteLinkService, restoreLinkService, reorderLinkService, updateLinkStyleService, highlightLinkService } from "../services/links.service.js";
 import ApiResponse from "../utils/ApiResponse.js";
 import asyncWrapper from "../utils/asyncWrapper.js";
 
