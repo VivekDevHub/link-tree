@@ -1,23 +1,27 @@
+// Importing modules
 import jwt from "jsonwebtoken";
-import config from "../config/config.js";
+import { JWT_SECRET } from "../config/env.config.js";
+import ApiError from "../utils/ApiError.js";
+import asyncWrapper from "../utils/asyncWrapper.js";
 
-const authMiddleware = (req, res, next) => {
-  const token = req.cookies.token || req.headers.authorization?.split(" ")[1];
+// Protecting routes with JWT authentication
+const protect = asyncWrapper(async (req, res, next) => {
+    const token = req.cookies?.linkters;
 
-  if (!token) {
-    return res.status(401).json({
-      message: "No Token Provided",
-    });
-  }
+    if (!token) {
+        throw new ApiError(401, "Not authorized, please login");
+    }
 
-  try {
-    const decoded = jwt.verify(token, config.JWT_SECRET);
-    req.user = decoded;
+    const decoded = jwt.verify(token, JWT_SECRET);
+
+    req.user = {
+        id: decoded.id,
+        email: decoded.email,
+        name: decoded.username,
+        role: decoded.role,
+    };
+
     next();
-  } catch (error) {
-    return res.status(401).json({
-      message: "invalid token",
-    });
-  }
-};
-export default authMiddleware
+});
+
+export default protect;
