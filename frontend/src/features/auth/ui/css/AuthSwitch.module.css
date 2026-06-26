@@ -1,0 +1,40 @@
+.switchText {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: auto;
+    padding-top: 52px;
+    color: #52617a;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.switchButton {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: #075bf4;
+    font: inherit;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.switchButton:hover {
+    color: #004fe0;
+}
+
+.switchButton:focus-visible {
+    outline: 3px solid rgba(5, 93, 245, 0.22);
+    outline-offset: 3px;
+}
+
+@media (max-width: 560px) {
+    .switchText {
+        padding-top: 36px;
+        font-size: 15px;
+    }
+}

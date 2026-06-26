@@ -1,0 +1,19 @@
+.wrapper {
+    width: min(100%, 560px);
+    min-height: 720px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 54px 48px 42px;
+    border: 1px solid #dce2ed;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 22px 55px rgba(20, 35, 65, 0.08);
+}
+
+@media (max-width: 560px) {
+    .wrapper {
+        min-height: auto;
+        padding: 36px 20px 30px;
+    }
+}

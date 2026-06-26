@@ -1,0 +1,208 @@
+.container {
+    padding: 1.5rem 2rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 1.5rem;
+}
+
+.section {
+    margin-bottom: 2rem;
+}
+
+.sectionTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #555;
+    margin: 0 0 1rem;
+}
+
+.themeDesc {
+    font-size: 0.8rem;
+    color: #888;
+    margin: 0 0 1rem;
+}
+
+.pfpRow {
+    display: flex;
+    justify-content: center;
+}
+
+.inputRow {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.input {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #d0d0d0;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    outline: none;
+}
+
+.input:focus {
+    border-color: #4f46e5;
+}
+
+.saveBtn {
+    padding: 0.5rem 1rem;
+    background: #4f46e5;
+    color: #fff;
+    border: none;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.saveBtn:hover:not(:disabled) {
+    background: #4338ca;
+}
+
+.saveBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.hint {
+    font-size: 0.75rem;
+    margin: 0.5rem 0 0;
+}
+
+.colorGroup {
+    margin-bottom: 1.25rem;
+}
+
+.colorLabel {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.colorPickerRow {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.colorInput {
+    width: 40px;
+    height: 36px;
+    border: 1px solid #d0d0d0;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    padding: 2px;
+}
+
+.colorText {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #d0d0d0;
+    border-radius: 0.375rem;
+    font-size: 0.8rem;
+    font-family: monospace;
+    outline: none;
+}
+
+.colorText:focus {
+    border-color: #4f46e5;
+}
+
+.presetRow {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+}
+
+.preset {
+    width: 24px;
+    height: 24px;
+    border-radius: 0.25rem;
+    border: 2px solid transparent;
+    cursor: pointer;
+    padding: 0;
+    transition: border-color 0.15s;
+}
+
+.preset:hover {
+    border-color: #999;
+}
+
+.presetActive {
+    border-color: #4f46e5;
+}
+
+.preview {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.previewText {
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.infoRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.375rem;
+    margin-bottom: 0.5rem;
+}
+
+.label {
+    font-size: 0.875rem;
+    color: #888;
+}
+
+.value {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #333;
+}
+
+@media (max-width: 560px) {
+    .container {
+        padding: 1.25rem 1rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .container {
+        padding: 1rem 0.75rem;
+    }
+
+    .title {
+        font-size: 1.1rem;
+    }
+
+    .inputRow {
+        flex-direction: column;
+    }
+
+    .preset {
+        width: 20px;
+        height: 20px;
+    }
+
+    .infoRow {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+}

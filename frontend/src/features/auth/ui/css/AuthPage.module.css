@@ -1,0 +1,80 @@
+.page {
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 40px 20px;
+    background: #ffffff;
+    color: #0f1d35;
+}
+
+.header {
+    width: 100%;
+    margin-top: 22px;
+    text-align: center;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #101b31;
+}
+
+.subtitle {
+    margin-top: 12px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #64718a;
+}
+
+.form {
+    width: 100%;
+    display: grid;
+    gap: 26px;
+    margin-top: 42px;
+}
+
+.remember {
+    display: inline-flex;
+    width: max-content;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1;
+    color: #263652;
+    cursor: pointer;
+}
+
+.checkbox {
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    accent-color: #055df5;
+    cursor: pointer;
+}
+
+@media (max-width: 560px) {
+    .page {
+        padding: 18px;
+    }
+
+    .header {
+        margin-top: 18px;
+    }
+
+    .title {
+        font-size: 22px;
+    }
+
+    .subtitle {
+        font-size: 15px;
+    }
+
+    .form {
+        gap: 22px;
+        margin-top: 32px;
+    }
+}

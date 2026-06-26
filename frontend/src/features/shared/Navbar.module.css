@@ -1,0 +1,237 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    min-width: 0;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    left: 0;
+    background: white;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.logoCont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    min-width: 0;
+    flex-shrink: 0;
+}
+
+.logoText {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    white-space: nowrap;
+}
+
+.other {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    align-items: center;
+    min-width: 0;
+}
+
+.usernameLink {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 0;
+    text-decoration: none;
+}
+
+.pfp {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #e0e0e0;
+    flex-shrink: 0;
+}
+
+.pfpInitial {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #eef2ff;
+    color: #4f46e5;
+    font-size: 0.875rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.username {
+    max-width: 11rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+}
+
+.username:hover {
+    text-decoration: underline;
+}
+
+.logoutBtn {
+    background-color: #ff4757;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.logoutBtn:hover {
+    background-color: #ff6b81;
+}
+
+.logoutBtn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.upgradeBtn {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.upgradeBtn:hover {
+    opacity: 0.9;
+}
+
+.adminBtn {
+    background: #101b31;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.adminBtn:hover {
+    background: #1e293b;
+}
+
+@media (max-width: 720px) {
+    .nav {
+        padding: 0.85rem 1rem;
+        gap: 0.75rem;
+    }
+
+    .logo {
+        width: 42px;
+    }
+
+    .logoText {
+        font-size: 1.25rem;
+    }
+
+    .other {
+        gap: 0.5rem;
+    }
+
+    .username {
+        max-width: 8rem;
+        font-size: 1rem;
+    }
+
+    .upgradeBtn,
+    .adminBtn,
+    .logoutBtn {
+        padding: 0.45rem 0.7rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 520px) {
+    .nav {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.75rem;
+    }
+
+    .logoCont {
+        justify-content: center;
+    }
+
+    .other {
+        justify-content: center;
+        flex-wrap: wrap;
+        row-gap: 0.5rem;
+    }
+
+    .usernameLink {
+        max-width: 100%;
+    }
+
+    .username {
+        max-width: 10rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .nav {
+        padding: 0.65rem 0.5rem;
+    }
+
+    .logo {
+        width: 34px;
+    }
+
+    .logoText {
+        font-size: 1.05rem;
+    }
+
+    .pfp,
+    .pfpInitial {
+        width: 28px;
+        height: 28px;
+        font-size: 0.75rem;
+    }
+
+    .username {
+        max-width: 7rem;
+        font-size: 0.9rem;
+    }
+
+    .upgradeBtn,
+    .adminBtn,
+    .logoutBtn {
+        padding: 0.38rem 0.55rem;
+        font-size: 0.75rem;
+    }
+}
