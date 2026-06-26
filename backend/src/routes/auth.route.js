@@ -3,7 +3,7 @@ import { loginUser, signupUser, getCurrentUser, logoutUser, checkUsername, getIm
 import validateErrors from "../middlewares/validateErrors.middleware.js";
 import protect from "../middlewares/auth.middleware.js";
 import { sanitizeLogin, sanitizeSignup } from "../sanitizers/auth.sanitize.js";
-import { loginValidator, signupValidator } from "../validators/auth.validate.js";
+import { loginValidator, signupValidator } from "../validators/auth.validators.js";
 
 const router = Router();
 

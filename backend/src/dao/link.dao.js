@@ -1,5 +1,5 @@
 // Importing modules
-import Link from "../models/link.model.js";
+import Link from "../models/links.model.js";
 
 // Creating a new link
 async function createLink(linkData) {

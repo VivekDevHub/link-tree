@@ -1,5 +1,5 @@
 // Sanitizing signup request body
-function sanitizeSignup(req, _res, next) {
+export function sanitizeSignup(req, _res, next) {
   const { name, email, password } = req.body;
 
   req.body = {
@@ -11,7 +11,7 @@ function sanitizeSignup(req, _res, next) {
 }
 
 // Sanitizing login request body
-function sanitizeLogin(req, _res, next) {
+export function sanitizeLogin(req, _res, next) {
   const { email, password } = req.body;
 
   req.body = {
@@ -23,16 +23,10 @@ function sanitizeLogin(req, _res, next) {
 }
 
 // Sanitizing auth user response
-function sanitizeAuthUserResponse(user) {
+export function sanitizeAuthUserResponse(user) {
   return {
     username: user.name,
     email: user.email,
   };
 }
 
-// export auth sanitizers
-export default {
-  sanitizeAuthUserResponse,
-  sanitizeLogin,
-  sanitizeSignup,
-};
